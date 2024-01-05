@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package trisa;
+
+option go_package = "github.com/yourusername/yourrepository/trisa";
+
+message SecureEnvelope {
+  // define your fields
+}
+
+message Address {
+  // define your fields
+}
+
+message AddressConfirmation {
+  // define your fields
+}
+
+message SigningKey {
+  // define your fields
+}
+
+message HealthCheck {
+  // define your fields
+}
+
+message ServiceState {
+  // define your fields
+}
+
+service TrisaNetwork {
+  rpc Transfer(SecureEnvelope) returns (SecureEnvelope);
+  rpc TransferStream(stream SecureEnvelope) returns (stream SecureEnvelope);
+  rpc ConfirmAddress(Address) returns (AddressConfirmation);
+  rpc KeyExchange(SigningKey) returns (SigningKey);
+}
+
+service TRISAHealth {
+  rpc Status(HealthCheck) returns (ServiceState);
+}
